@@ -1,0 +1,54 @@
+#Hospital
+class Hospital:
+    def __init__(self, patients):
+        self.patients = patients
+
+    def view_patients(self):
+        print("Patient List:")
+        for patient in self.patients:
+            print(patient)
+
+    def admit_patient(self, patient):
+        self.patients.append(patient)
+        print("Patient Admitted Successfully")
+
+    def discharge_patient(self, patient):
+        if patient in self.patients:
+            self.patients.remove(patient)
+            print("Patient Discharged Successfully")
+        else:
+            print("Patient Not Found")
+
+
+patients = ["sri", "Priya", "yash"]
+
+o = Hospital(patients)
+
+msg = """
+1. View Patients
+2. Admit Patient
+3. Discharge Patient
+4. Exit
+"""
+
+while True:
+    print(msg)
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        o.view_patients()
+
+    elif choice == 2:
+        patient = input("Enter patient name: ")
+        o.admit_patient(patient)
+
+    elif choice == 3:
+        patient = input("Enter patient name to discharge: ")
+        o.discharge_patient(patient)
+
+    else:
+        print("Thank You")
+        quit()
+
+
